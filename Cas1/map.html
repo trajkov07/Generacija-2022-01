@@ -1,0 +1,75 @@
+<html>
+    <head></head>
+    <body>
+        <button class="btn">Click me</button>
+
+        <script>
+            let users = [
+                {firstName: "Martin", lastName: "Trajkov", age:26},
+                {firstName: "Koce", lastName: "Krstev", age:30},
+                {firstName: "Kristijan", lastName: "Pocev", age:35},
+                {firstName: "Kristijan", lastName: "Trajkov", age:20},
+            ];
+            //console.log(users);
+            // ovde koristime return
+            let mapUsers = users.map((covek) => {
+                let fullName = covek.firstName + ' - ' + covek.lastName;
+                return fullName;
+            });
+            //console.log(mapUsers);
+            
+            // vo filter mozeme da odime bez return 
+            let result = users.filter((user) => user.age > 29);
+           // console.log(result);
+
+            // promenlivata kaj callback funkcijata ja zadavame nie
+            // find sekogas vrakja eden element toj na koj prv kje naide
+            let findResult = users.find((person) => 
+            person.firstName === 'Kristijan');
+            //console.log(findResult);    
+
+            let ovosja = ["mango", "ananas", "jabolka", "limon", "portokal"]
+
+            let ovosje1 = ovosja[0];
+            let ovosje2 = ovosja[1];
+           // console.log(ovosje1, ovosje2);
+
+            let [fruit1,,fruit3 ] = ovosja;
+            //console.log(fruit1, fruit3);
+
+            const covek = {
+                ime: "Martin",
+                prezime: "Trajkov",
+                godini: 29,
+                hobies: {
+                    hobi1: "citanje",
+                    hobi2: "fudbal"
+                }
+            };
+        
+
+            const { ime, godini, hobies:{hobi1}} = covek;
+
+            if(godini > 30) {
+                console.log(firstName);
+            }
+            // console.log(ime, godini, hobi1);
+            // console.log(covek);
+
+            let ovosja2 = ["mango", "ananas", "jabolka", "limon", "portokal"];
+
+            let [firstFruit, secondFruit, ...rest] = ovosja2;
+
+            // console.log(firstFruit, secondFruit, rest);
+
+            let domasniZivotni = ["kuce", "mace"];
+            let diviZivotni = ["lav", "volk", "tigar"];
+            
+            let siteZivotni = [...domasniZivotni, ...diviZivotni];
+            console.log(siteZivotni);
+
+        </script>
+    </body>
+</html>
+
+brand / model / godina

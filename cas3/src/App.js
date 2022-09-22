@@ -48,11 +48,23 @@ function App() {
       {/* {sportoviILuge.map((element) => {
         return <Sport name={element.name} sport={element.sport} />;
       })} */}
-      {/* <StudentClass student={student} />
-      <Car vozila={cars} /> */}
-      <Korisnik korisnik2={korisnik2} />
+      {/* <StudentClass student={student} /> */}
+      <Car vozila={cars} />
+      {/* <Korisnik korisnik2={korisnik2} /> */}
     </div>
   );
 }
 
 export default App;
+
+// Da napraime edna komponenta student kaj sto vo tabela kje imame,
+// ime / prezime / index listata za popolnuvanje na tabelata da ja pratime
+// od app.js kako property a potoa da pratime uste edno property ,
+// koe kje bide nekoj obicen tekst, neka se vika semestar,
+// i toa da se prikazuva na ekranot vo nekoj <h1> element
+// posle tabelata na studentite
+
+// Da stavime PropTypes na listata od studenti deka toa kje bide
+// lista od objekti i kje bide required a za semestarot da stavime samo
+// deka kje bide obicen string no dokolku semestarot ne se
+// prakja od app.js da stavime defaultno property koe kje ispisuva zimski

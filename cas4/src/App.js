@@ -4,6 +4,7 @@ import { ShowName } from "./components/ShowName";
 import { Dates } from "./components/Dates";
 import { useState, useEffect } from "react";
 import { CounterClass } from "./components/CounterClass";
+import { Movie } from "./components/Movie";
 
 function App() {
   const [username, setUsername] = useState("username");
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
       {/* <ShowName /> */}
       {/* <Dates /> */}
-      <input
+      {/* <input
         type="text"
         placeholder="Enter username"
         value={username}
@@ -42,7 +43,8 @@ function App() {
       <br />
       <br />
       <br />
-      <CounterClass />
+      <CounterClass /> */}
+      <Movie />
     </div>
   );
 }
@@ -57,7 +59,9 @@ export default App;
 
 // Domasna
 // neka ima edna do druga dve sliki i pod niv neka ima brojaci koj kje pocnuvaat od 0
-// vo stejtot da imame dve promenlivi koj sto kje bidat vsusnost brojacite za slikite, koga kje klikneme
+// vo stejtot da imame dve promenlivi koj sto kje bidat vsusnost brojacite za slikite,
+// koga kje klikneme
 // na nekoja od slikite da se zgolemi brojacot sto e odgovoren za taa slika
-// no isto taka preku useEffect da napravime sekogas koga kje se klikne vtorata slika togas vo kozola
+// no isto taka preku useEffect da napravime sekogas koga kje se klikne vtorata
+//  slika togas vo kozola
 // da napiseme nekoj tekst ---> jas uspesno ja zavrsiv vezbata

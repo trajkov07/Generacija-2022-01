@@ -3,7 +3,12 @@ import { KorisnikContext } from "../App";
 
 export const Location = () => {
   // ova e vsusnost nasiot Context.Consumer
-  const location = React.useContext(KorisnikContext);
+  let location = React.useContext(KorisnikContext);
+
+  // const location = React.useContext(KorisnikContext);
+
+  // let koristime koga nasata variabla bi mozela da pretrpi promeni
+  // const koristime koga znaeme deka vrednosta na variablata nema nikogas da se smeni
 
   return (
     <div>

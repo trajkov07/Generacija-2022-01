@@ -1,0 +1,179 @@
+Neka imate nekoj objekt movie koj vnatre kje ima lista od sliki (barem 2), od nekoj film sto kje go najdete na internet, i potoa neka ima za filmot
+rating, zanr, plot, releaseDate, linkToTheTrailer.
+
+Potoa Kreirajte nekoja komponenta Movie.js, vo koja samo kje prikazite 2 drugi komponenti koj kje gi kreirate so ime informationAboutMovie.js i vnatre kje gi prikazite
+site informacii za filmot, osven slikite i linkot a potoa kje kreirate nekoja komponenta koja kje bide VisualInformationAboutMovie.js, vo koja kje gi pokazete site sliki
+i linkot do trailerot, no ovoj objekt movie da bide kreiran vo app.js i praten preku kontekst a potoa vo Information i VisualInformation da se zemaat informaciite za filmot
+i da se prikazat vo soodvetniot html 
+
+cekor1: da se kreira movie objektot vo app.js so potrebnite informacii (kako nasiot korisnik vo primerot)
+    - Sledniov kod go stavame vo app.js i go kreirame nasiot movie objekt
+
+    const movie = {
+        name: "Interstellar",
+        rating: 9,
+        zanr: "science-fiction",
+        plot: "A group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+        releaseDate: "08-08-2014",
+        link: "https://www.youtube.com/watch?v=zSWdZVtXT7E&ab_channel=WarnerBros.UK%26Ireland",
+        pictures: [
+        "https://images.theconversation.com/files/64127/original/2mdvqkw8-1415620078.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop",
+        "https://images.squarespace-cdn.com/content/v1/5a78ab8490badee028bef0e9/1568935524292-TPSLMXHD9HE6PKN02YOG/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/Interstellar.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52GJp0PGi8TXYbC-9ZB2IouAAtEW_gk4ceY2v54iFqjVKQRFMpxQQznTQhpN3EeZrJH8&usqp=CAU",
+        ],
+  };
+
+ cekor2: da se kreira movie komponentata vo koja kje se prikazuvaat drugite 2 komponenti
+    export const Movie = () => {
+    return (
+        <div>
+            Zasega e prazna podocna ovde kje gi stavime drugite dve komponenti
+        </div>
+    );
+    };
+
+ cekor3: da se kreira contextot i vo value da se prati movie objektot i toj context da ja obvitkuva Movie komponentata
+
+    Vo app.js go kreirame contextot nadvor od definicijata na komponentata 
+    export const MovieContext = React.createContext();
+
+    Vnatre vo app.js komponentata ja obvitkuvame Movie komponentata so nasiot context i go prakame 
+    movie objektot preku value vo Providerot na contextot  
+      <MovieContext.Provider value={movie}>
+        <Movie />
+      </MovieContext.Provider>
+
+    Posle cekorov App.js bi trebalo da izgleda vaka nesto: 
+
+    import logo from "./logo.svg";
+    import "./App.css";
+    import React from "react";
+    import { Movie } from "./components/Movie";
+
+
+    export const MovieContext = React.createContext();
+
+    function App() {
+
+    const movie = {
+        name: "Interstellar",
+        rating: 9,
+        zanr: "science-fiction",
+        plot: "A group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+        releaseDate: "08-08-2014",
+        link: "https://www.youtube.com/watch?v=zSWdZVtXT7E&ab_channel=WarnerBros.UK%26Ireland",
+        pictures: [
+        "https://images.theconversation.com/files/64127/original/2mdvqkw8-1415620078.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop",
+        "https://images.squarespace-cdn.com/content/v1/5a78ab8490badee028bef0e9/1568935524292-TPSLMXHD9HE6PKN02YOG/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/Interstellar.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52GJp0PGi8TXYbC-9ZB2IouAAtEW_gk4ceY2v54iFqjVKQRFMpxQQznTQhpN3EeZrJH8&usqp=CAU",
+        ],
+    };
+
+    return (
+        <div className="App">
+        <MovieContext.Provider value={movie}>
+            <Movie />
+        </MovieContext.Provider>
+        </div>
+    );
+    }
+
+    export default App;  
+
+ cekor4: da se kreiraat drugite dve komponenti
+    Gi kreirame najprvin so nekoi staticki vrednosti
+
+    export const MovieInfo = () => {
+    return (
+        <div>
+            <h4>Name: </h4>
+            <h4>Rating: </h4>
+            <h4>Zanr: </h4>
+            <h4>Plot: </h4>
+            <h4>Release Date:</h4>
+        </div>
+    );
+    };
+
+    export const MovieVisual = () => {
+    return (
+        <div>
+        <h3>
+            <a>Link to movie</a>
+        </h3>
+        <div>           
+                <img
+                src=
+                alt="movie"
+                />
+            
+            
+        </div>
+        </div>
+    );
+    };
+
+    I potoa pokazete gi ovie dve komponenti vo movie komponentata
+
+    import { MovieInformation } from "./MovieInformation";
+    import { MovieVisual } from "./MovieVisual";
+
+    export const Movie = () => {
+    return (
+        <div>
+            <MovieInformation />
+            <MovieVisual />
+        </div>
+    );
+    };
+
+
+cekor5: da go zememe objektot od contextot i da gi prikazime informaciite preku toj objekt
+
+Go importirame contextot
+import { MovieContext } from "../App";
+
+i potoa preku useContext go zemame od nego 
+const movie = React.useContext(MovieContext);
+
+Celiot kod bi izgledal vaka 
+
+import React from "react";
+import { MovieContext } from "../App";
+export const MovieInfo = () => {
+  const movie = React.useContext(MovieContext);
+  return (
+    <div>
+      <h4>Name: {movie.name}</h4>
+      <h4>Rating: {movie.rating}</h4>
+      <h4>Zanr: {movie.zanr}</h4>
+      <h4>Plot: {movie.plot}</h4>
+      <h4>Release Date: {movie.releaseDate}</h4>
+    </div>
+  );
+};
+
+import React from "react";
+import { MovieContext } from "../App";
+export const MovieVisual = () => {
+  const movie = React.useContext(MovieContext);
+  return (
+    <div>
+      <h3>
+        <a href={movie.link}>Link to movie</a>
+      </h3>
+      <div>
+        {movie.pictures.map((image, i) => {
+          return (
+            <img
+              src={image}
+              key={i}
+              alt="movie"
+              style={{ width: 300, height: 300 }}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};

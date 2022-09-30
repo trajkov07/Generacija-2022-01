@@ -26,10 +26,22 @@ export const Login = () => {
     e.preventDefault();
     console.log("formata e submitirana");
     setFormErrors(validate(formValues));
+    setIsSubmit(true);
     // TODO: ZOSTO OVA NE FUNKCIONIRA
-    if (Object.keys(formErrors.length === 0)) {
-      setIsSubmit(true);
-    }
+    // Ova ne funkcionirase bidejki vo momentot koga se izvrsuva ovoj if, formErrors e seuste prazen objekt
+    // if (Object.keys(formErrors.length) === 0) {
+    //   setIsSubmit(true);
+    // }
+
+    // Dokolku sakame da go napravime ova bi morale da go napravime na sledniov nacin
+    // najprvin rezultatot od validate funkcijata da go stavime vo nekoja promenliva pa togas da rabotime so nego
+    // No isto taka bi mozelo i na drug nacin odnosno dole vo JSX (html) kodot kaj sto go pokazuvame
+    // sign in kaj ternarniot operator
+    // let errorsObject = validate(formValues);
+    // setFormErrors(errorsObject);
+    // if (Object.keys(formErrors).length === 0) {
+    //   setIsSubmit(true);
+    // }
   };
 
   const validate = (values) => {
@@ -65,7 +77,9 @@ export const Login = () => {
     <div className="container">
       {
         // ternary operator
-        isSubmit && <h1>Signed in successfully</h1>
+        Object.keys(formErrors).length === 0 && isSubmit && (
+          <h1>Signed in successfully</h1>
+        )
       }
 
       <form className="form" onSubmit={handleSubmit}>

@@ -1,11 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Login } from "./components/Login";
+import { DomasnaForma } from "./components/DomasnaForm";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      {/* <Login /> */}
+      <DomasnaForma />
     </div>
   );
 }

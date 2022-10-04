@@ -17,6 +17,7 @@ export const Login = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  // se povikuva pri sekoja promena na form values objektot
   useEffect(() => {
     console.log(formValues);
   }, [formValues]);

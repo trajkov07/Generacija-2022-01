@@ -1,36 +1,69 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes, useRoutes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { BookList } from "./components/BookList";
 import { Book } from "./components/Book";
 import { NewBook } from "./components/NewBook";
 import { NotFound } from "./components/NotFound";
+import { BookLayout } from "./components/BookLayout";
 // npm i react-router-dom
 function App() {
+  // Drug nacin na definiranje na rutite
+  // let element = useRoutes([
+  //   {
+  //     path: "/",
+  //     element: <Home />,
+  //   },
+  //   {
+  //     path: "*",
+  //     element: <NotFound />,
+  //   },
+  // ]);
+
   return (
     <>
+      {/* Bi mozele da imame poveke ruti so ist tekst vo path kje se pokazat
+        site onie sto gi imame
+      <Routes>
+        <Route path="/books" element={<h1>Some extra content</h1>} />
+      </Routes> */}
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            {/* replace go zamenuva rutata vo istorijata na browserot
+            <Link to="/" replace>Home</Link> 
+            */}
+            {/* <Link to="/" reloadDocument>
+              Home
+            </Link> */}
+            <NavLink
+              style={({ isActive }) => {
+                return isActive ? { color: "red" } : { color: "blue" };
+              }}
+              to="/"
+              end
+            >
+              Home
+            </NavLink>
             {
               // so a tag se refreshira stranava i toa ne e preporaclivo
             }
             {/* <a href="/">Home</a> */}
           </li>
           <li>
-            <Link to="/books">Books</Link>
+            <NavLink to="/books">Books</NavLink>
           </li>
         </ul>
       </nav>
+      {/* {element} */}
       <Routes>
         {
           // path znaci delot sto go imame posle domain imeto na sajtot
           // element e delot koj sakame da go pokazeme
         }
         <Route path="/" element={<Home />} />
-        <Route path="/books">
+        <Route path="/books" element={<BookLayout />}>
           <Route index element={<BookList />} />
           <Route path=":id" element={<Book />} />
           <Route path="new" element={<NewBook />} />

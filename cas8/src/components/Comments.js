@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { API_URL } from "../Konstanti/constants";
 import { getComments } from "../services/commentsService";
 export const Comments = () => {
@@ -9,6 +10,10 @@ export const Comments = () => {
   //       .then((result) => result.json())
   //       .then((jsonValue) => setComments(jsonValue));
   //   }, []);
+  const object = useLocation();
+  console.log(object);
+  let commentState = object.state;
+  console.log(commentState);
 
   useEffect(() => {
     getComments().then((data) => setComments(data));
@@ -30,6 +35,8 @@ export const Comments = () => {
       ) : (
         <h2>Loading .....</h2>
       )}
+      <div>{commentState.comment}</div>
+      <h1>{commentState.name}</h1>
     </div>
   );
 };

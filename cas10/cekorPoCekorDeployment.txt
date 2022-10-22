@@ -1,0 +1,33 @@
+1. Kreirame nov proekt so npx create-react-app
+2. Odime na github i kreirame public repository so istoto ime kako i aplikacijata sto sme ja kreirale 
+3. Potoa otvarame terminal i navigirame do proektot koj sme go kreirale 
+4. Gi izvrsuvame slednive komandi 
+    git init
+    git branch -M main
+    git remote add origin https://github.com/trajkov07/test-deploy.git
+    git push -u origin main
+
+5. Vo package.json na nasiot proekt dodavame novo pole homepage koe treba da izgleda vaka 
+"homepage": "https://myusername.github.io/my-app"
+myusername e vasiot github account i my-app e imeto na vasata aplikacija
+
+6. Instalirame github pages vo nasiot proekt 
+    npm install --save gh-pages
+
+7. Vo package.json vo nasiot proekt pod scripts gi dodavame slednive skripti za izvrsuvanje 
+    Gi dodavame predeploy i deploy drugite vekje gi ima 
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    }
+
+8. Ja deplojuvame nasata aplikacija so komandata
+    npm run deploy 
+    
+
+
+
